@@ -31,7 +31,7 @@ public class CalculatorApp {
         }else if(op .equals ("/")){
             return(num1 / num2);
         } else {
-            System.out.println("不明な演算子です。");
+            System.out.println("エラー：不明な演算子です。");
             return 0;
             //エラーが出た時にreturn 0;と表示されるようになっているため、どう見せるか修正するか決める必要がある。
         }
