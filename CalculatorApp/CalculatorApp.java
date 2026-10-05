@@ -5,7 +5,7 @@ public class CalculatorApp {
 
         //1つ目の数値入力
         System.out.print(" 1つ目の数値を入力してください。");
-        int num1 = scanner.nextInt();
+        double num1 = scanner.nextDouble();
 
         //演算子の入力
         System.out.print("演算子を入力してください");
@@ -13,7 +13,7 @@ public class CalculatorApp {
 
         //2つ目の数値入力
         System.out.print("2つ目の数値を入力してください。");
-        int num2 = scanner.nextInt();
+        double num2 = scanner.nextDouble();
 
         scanner.close();
 
@@ -21,7 +21,7 @@ public class CalculatorApp {
     }
 
     //計算結果の表示
-    public static int calculate(int num1, String op, int num2){
+    public static double calculate(double num1, String op, double num2){
         if (op .equals ("+")){
             return(num1 + num2);
         } else if(op .equals ("-")){
