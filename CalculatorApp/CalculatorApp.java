@@ -16,8 +16,13 @@ public class CalculatorApp {
         double num2 = scanner.nextDouble();
 
         scanner.close();
+     　 double result = calculate(num1, op, num2);
 
-        System.out.println("計算結果: " + calculate(num1, op, num2));
+        if(Double.isNaN(result)) {
+            System.out.println("エラー：不明な計算結果です。");
+        } else {
+            System.out.println("計算結果: " + result);
+        }
     }
 
     //計算結果の表示
@@ -31,8 +36,7 @@ public class CalculatorApp {
         }else if(op .equals ("/")){
             return(num1 / num2);
         } else {
-            System.out.println("エラー：不明な演算子です。");
-            return 0;
+            return Double.NaN;
             //エラーが出た時にreturn 0;と表示されるようになっているため、どう見せるか修正するか決める必要がある。
         }
     }
