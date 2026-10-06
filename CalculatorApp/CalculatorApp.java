@@ -8,8 +8,16 @@ public class CalculatorApp {
         double num1 = scanner.nextDouble();
 
         //演算子の入力
-        System.out.print("演算子を入力してください");
-        String op = scanner.next();
+        String op;
+        while (true) {
+            System.out.print("演算子を入力してください(+, -, *, /)");
+            op = scanner.next();
+
+            if(op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/")) {
+                break;
+            }
+            System.out.print("エラー：正しい演算子を入力してください(+, -, *, /)");
+        }
 
         //2つ目の数値入力
         System.out.print("2つ目の数値を入力してください。");
