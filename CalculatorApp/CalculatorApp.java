@@ -33,6 +33,7 @@ public class CalculatorApp {
 
         // 2つ目の数値入力
         System.out.print("2つ目の数値を入力してください: ");
+        //一度文字列（String）で数字を受け取る。
         String input2 = scanner.next();
 
         // 数字が13桁以上の場合はエラーを表示する
@@ -65,7 +66,7 @@ public class CalculatorApp {
             return (num1 / num2);
         } else {
             return Double.NaN;
-            // 不明な演算子のときは「数字ではない(NaN)」を返す
+            //エラーが出た時にreturn 0;と表示されるようになっているため、どう見せるか修正するか決める必要がある。
         }
     }
 }
