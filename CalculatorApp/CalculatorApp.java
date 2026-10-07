@@ -35,16 +35,19 @@ public class CalculatorApp {
         }
 
         // 2つ目の数値入力
-        System.out.print("2つ目の数値を入力してください: ");
-        //一度文字列（String）で数字を受け取る。
-        String input2 = scanner.next();
+        while (true){
+            System.out.print("2つ目の数値を入力してください: ");
+            //一度文字列（String）で数字を受け取る。
+            String input2 = scanner.next();
 
-        // 数字が13桁以上の場合はエラーを表示する
-        if (input2.length() >= 13) {
-            System.out.println("エラー：数が大きすぎます！2つ目の数値を入力してください。");
-        } else {
-            //文字から数字（Stringからdoubleに変換）してnum2に保存する。
-            num2 = Double.parseDouble(input2);
+            // 数字が13桁以上の場合はエラーを表示する
+            if (input2.length() >= 13) {
+                System.out.println("エラー：数が大きすぎます！2つ目の数値を入力してください。");
+            } else {
+                //文字から数字（Stringからdoubleに変換）してnum2に保存する。
+                num2 = Double.parseDouble(input2);
+                break;
+            }
         }
 
         scanner.close();
