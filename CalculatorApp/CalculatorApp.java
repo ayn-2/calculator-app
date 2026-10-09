@@ -33,7 +33,9 @@ public class CalculatorApp {
                 if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/")) {
                     break;
                 }
+                //★森本★
                 System.out.println("エラー：不明な演算子です。");
+                //★★★★★★
             }
 
             // 2つ目の数値入力
