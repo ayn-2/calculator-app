@@ -1,5 +1,20 @@
 import java.util.Scanner;
 public class CalculatorApp {
+    
+    //★三上★
+    public static  String fullHalf(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            //全角数字
+            if (c >= '０' && c <= '９') {
+                sb.append((char) (c - '０' + '0'));
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+    //★★★★★★★★
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -13,16 +28,30 @@ public class CalculatorApp {
             while (true){
                 System.out.print("1つ目の数値を入力してください: ");
                 //一度文字列（String）で数字を受け取る。
-                String input1 = scanner.next();
+                String input1 = scanner.nextLine();
+
+                //★三上★
+                input1 = fullHalf(input1);
+
+                if(input1.trim().isEmpty()) {
+                    System.out.println("エラー：不正な文字が入力されました");
+                    continue;
+                }
+                //★★★★★★★★
 
                 // 数字が13桁以上の場合はエラーを表示する
                 if (input1.length() >= 13) {
                     System.out.println("エラー：数が大きすぎます！1つ目の数値を入力してください。");
-                } else {
-                    //文字から数字（Stringからdoubleに変換）してnum1に保存する。
+                    continue;
+                }
+                //★三上★
+                try {
                     num1 = Double.parseDouble(input1);
                     break;
+                } catch (NumberFormatException e) {
+                    System.out.println("エラー：不正な文字が入力されました");
                 }
+                //★★★★★★★★
             }
 
             // 演算子の入力
@@ -33,7 +62,7 @@ public class CalculatorApp {
                 if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/")) {
                     break;
                 }
-                //★森本★
+                //★森本★三上
                 System.out.println("エラー：不明な演算子です。");
                 //★★★★★★
             }
@@ -42,19 +71,32 @@ public class CalculatorApp {
             while (true){
                 System.out.print("2つ目の数値を入力してください: ");
                 //一度文字列（String）で数字を受け取る。
-                String input2 = scanner.next();
+                String input2 = scanner.nextLine();
+
+                //★三上★
+                input2 = fullHalf(input2);
+
+                if(input2.trim().isEmpty()) {
+                    System.out.println("エラー：不正な文字が入力されました");
+                    continue;
+                }
+                //★★★★★★★★
 
                 // 数字が13桁以上の場合はエラーを表示する
                 if (input2.length() >= 13) {
                     System.out.println("エラー：数が大きすぎます！2つ目の数値を入力してください。");
-                } else {
-                    //文字から数字（Stringからdoubleに変換）してnum2に保存する。
+                    continue;
+                } 
+
+                //★三上★
+                try {
                     num2 = Double.parseDouble(input2);
                     break;
+                } catch (NumberFormatException e) {
+                    System.out.println("エラー：不正な文字が入力されました");
                 }
+                //★★★★★★★★
             } 
-
-        
 
             double result = calculate(num1, op, num2);
 
