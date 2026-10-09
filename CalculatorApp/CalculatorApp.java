@@ -35,7 +35,7 @@ public class CalculatorApp {
                 }
                 System.out.println("エラー：正しい演算子を入力してください(+, -, *, /)");
             }
-            //★10/09森本★
+            //★森本★
             // 2つ目の数値入力
             while (true){
                 System.out.print("2つ目の数値を入力してください: ");
@@ -51,6 +51,7 @@ public class CalculatorApp {
                     break;
                 }
             } 
+            //★★★★★★★★★
         
 
             double result = calculate(num1, op, num2);
