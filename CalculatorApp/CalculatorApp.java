@@ -58,6 +58,9 @@ public class CalculatorApp {
             while (true) {
                 System.out.print("演算子を入力してください(+, -, *, /): ");
                 op = scanner.next();
+                //★三上
+                scanner.nextLine();
+                //★★★★★★
 
                 if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/")) {
                     break;
