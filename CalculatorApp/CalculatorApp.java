@@ -33,9 +33,9 @@ public class CalculatorApp {
                 if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/")) {
                     break;
                 }
-                System.out.println("エラー：正しい演算子を入力してください(+, -, *, /)");
+                System.out.println("エラー：不明な演算子です。");
             }
-            //★森本★
+
             // 2つ目の数値入力
             while (true){
                 System.out.print("2つ目の数値を入力してください: ");
@@ -51,7 +51,7 @@ public class CalculatorApp {
                     break;
                 }
             } 
-            //★★★★★★★★★
+
         
 
             double result = calculate(num1, op, num2);
