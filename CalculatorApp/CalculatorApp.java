@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class CalculatorApp {
     
-    //★三上★
+    //★三上★船木
     public static  String fullHalf(String s) {
         StringBuilder sb = new StringBuilder();
         for (char c : s.toCharArray()) {
@@ -30,7 +30,7 @@ public class CalculatorApp {
                 //一度文字列（String）で数字を受け取る。
                 String input1 = scanner.nextLine();
 
-                //★三上★
+                //★三上★船木
                 input1 = fullHalf(input1);
 
                 if(input1.trim().isEmpty()) {
@@ -44,7 +44,7 @@ public class CalculatorApp {
                     System.out.println("エラー：数が大きすぎます！1つ目の数値を入力してください。");
                     continue;
                 }
-                //★三上★
+                //★三上★船木
                 try {
                     num1 = Double.parseDouble(input1);
                     break;
@@ -58,16 +58,16 @@ public class CalculatorApp {
             while (true) {
                 System.out.print("演算子を入力してください(+, -, *, /): ");
                 op = scanner.next();
-                //★三上
+                //★三上★船木
                 scanner.nextLine();
                 //★★★★★★
 
                 if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/")) {
                     break;
                 }
-                //★森本★三上
+                
                 System.out.println("エラー：不明な演算子です。");
-                //★★★★★★
+                
             }
 
             // 2つ目の数値入力
@@ -76,7 +76,7 @@ public class CalculatorApp {
                 //一度文字列（String）で数字を受け取る。
                 String input2 = scanner.nextLine();
 
-                //★三上★
+                //★三上★船木
                 input2 = fullHalf(input2);
 
                 if(input2.trim().isEmpty()) {
@@ -91,7 +91,7 @@ public class CalculatorApp {
                     continue;
                 } 
 
-                //★三上★
+                //★三上★船木
                 try {
                     num2 = Double.parseDouble(input2);
                     break;
