@@ -60,9 +60,6 @@ public class CalculatorApp {
                 //★三上★
                 op = scanner.nextLine();
                 //★★★★★★
-                //★三上★船木
-                scanner.nextLine();
-                //★★★★★★
 
                 if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/")) {
                     break;
