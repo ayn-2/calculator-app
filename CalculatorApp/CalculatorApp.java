@@ -55,9 +55,7 @@ public class CalculatorApp {
             // 演算子の入力
             while (true) {
                 System.out.print("演算子を入力してください(+, -, *, /): ");
-                //★三上★森本★
                 op = scanner.nextLine();
-                //★★★★★★
 
                 if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/")) {
                     break;
@@ -91,7 +89,7 @@ public class CalculatorApp {
 
                 try {
                     num2 = Double.parseDouble(input2);
-                    //　★森本★
+                    //　★森本★船木
                     if(op.equals("/") && num2 == 0) {
                         System.out.println("エラー：不正な値が入力されました");
                         continue;
