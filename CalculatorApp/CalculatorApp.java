@@ -128,7 +128,6 @@ public class CalculatorApp {
             return (num1 / num2);
         } else {
             return Double.NaN;
-            //エラーが出た時にreturn 0;と表示されるようになっているため、どう見せるか修正するか決める必要がある。
         }
     }
 }
