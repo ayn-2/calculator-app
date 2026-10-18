@@ -1,3 +1,6 @@
+//★船木
+import java.text.DecimalFormat;
+//★★★★★★
 import java.util.Scanner;
 public class CalculatorApp {
     
@@ -115,7 +118,10 @@ public class CalculatorApp {
             } else if (Double.isNaN(result)) {
                 System.out.println("エラー：不明な計算結果です。");
             } else {
-                System.out.println("計算結果: " + result);
+                //★船木★
+                DecimalFormat df = new DecimalFormat("#,###.###############");
+                System.out.println("計算結果: " + df.format(result));
+                //★★★★★★
                 break;
             }
         }
