@@ -57,7 +57,12 @@ public class CalculatorApp {
                 System.out.print("演算子を入力してください(+, -, *, /): ");
                 op = scanner.nextLine();
 
-                if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/")) {
+                //★船木★
+                if (op.equals("+") || op.equals("＋") 
+                    || op.equals("-") || op.equals("ー")  
+                    || op.equals("*") || op.equals("＊")  
+                    || op.equals("/") || op.equals("／") ) {
+                //★★★★★★
                     break;
                 }
                 
@@ -89,12 +94,13 @@ public class CalculatorApp {
 
                 try {
                     num2 = Double.parseDouble(input2);
-                    //　★森本★船木
-                    if(op.equals("/") && num2 == 0) {
+
+                    //★船木★
+                    if((op.equals("/") || op.equals("／")) && num2 == 0) {
                         System.out.println("エラー：不正な値が入力されました");
                         continue;
                     }
-                    //　★★★★★★
+                    //★★★★★★
                     break;
                 } catch (NumberFormatException e) {
                     System.out.println("エラー：不正な文字が入力されました");
@@ -119,13 +125,15 @@ public class CalculatorApp {
 
     // 計算結果の表示
     public static double calculate(double num1, String op, double num2) {
-        if (op.equals("+")) {
+        //★船木★
+        if (op.equals("+") || op.equals("＋")) {
             return (num1 + num2);
-        } else if (op.equals("-")) {
+        } else if (op.equals("-")  || op.equals("ー")) {
             return (num1 - num2);
-        } else if (op.equals("*")) {
+        } else if (op.equals("*")  || op.equals("＊")) {
             return (num1 * num2);
-        } else if (op.equals("/")) {
+        } else if (op.equals("/")  || op.equals("／")) {
+        //★★★★★★
             return (num1 / num2);
         } else {
             return Double.NaN;
