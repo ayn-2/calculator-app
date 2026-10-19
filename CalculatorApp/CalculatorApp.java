@@ -1,6 +1,6 @@
-//★船木
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
-//★★★★★★
 import java.util.Scanner;
 public class CalculatorApp {
     
@@ -20,8 +20,8 @@ public class CalculatorApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        double num1 = 0;
-        double num2 = 0;
+        BigDecimal num1 = BigDecimal.ZERO;
+        BigDecimal num2 = BigDecimal.ZERO;
         String op;
 
         while (true) { 
@@ -48,7 +48,7 @@ public class CalculatorApp {
                 }
 
                 try {
-                    num1 = Double.parseDouble(input1);
+                    num1 = new BigDecimal(input1);
                     break;
                 } catch (NumberFormatException e) {
                     System.out.println("エラー：不正な文字が入力されました");
@@ -60,12 +60,10 @@ public class CalculatorApp {
                 System.out.print("演算子を入力してください(+, -, *, /): ");
                 op = scanner.nextLine();
 
-                //★船木★
                 if (op.equals("+") || op.equals("＋") 
                     || op.equals("-") || op.equals("ー")  
                     || op.equals("*") || op.equals("＊")  
                     || op.equals("/") || op.equals("／") ) {
-                //★★★★★★
                     break;
                 }
                 
@@ -96,32 +94,28 @@ public class CalculatorApp {
 
 
                 try {
-                    num2 = Double.parseDouble(input2);
+                    num2 = new BigDecimal(input2);
 
-                    //★船木★
-                    if((op.equals("/") || op.equals("／")) && num2 == 0) {
+                    if((op.equals("/") || op.equals("／")) && num2.compareTo(BigDecimal.ZERO) == 0) {
                         System.out.println("エラー：不正な値が入力されました");
                         continue;
                     }
-                    //★★★★★★
                     break;
                 } catch (NumberFormatException e) {
                     System.out.println("エラー：不正な文字が入力されました");
                 }
             } 
 
-            double result = calculate(num1, op, num2);
+            BigDecimal result = calculate(num1, op, num2);
 
             //計算結果が13桁以上の場合、または演算子が正しくない場合、エラー表示にする
-            if (result >= 1000000000000.0){
-                System.out.println("エラー:数が大きすぎます！");
-            } else if (Double.isNaN(result)) {
+            if (result == null) {
                 System.out.println("エラー：不明な計算結果です。");
+            } else if (result.compareTo(new BigDecimal("1000000000000")) >= 0){
+                System.out.println("エラー:数が大きすぎます！");
             } else {
-                //★船木★
                 DecimalFormat df = new DecimalFormat("#,###.###############");
                 System.out.println("計算結果: " + df.format(result));
-                //★★★★★★
                 break;
             }
         }
@@ -130,19 +124,17 @@ public class CalculatorApp {
     }
 
     // 計算結果の表示
-    public static double calculate(double num1, String op, double num2) {
-        //★船木★
+    public static BigDecimal calculate(BigDecimal num1, String op, BigDecimal num2) {
         if (op.equals("+") || op.equals("＋")) {
-            return (num1 + num2);
+            return num1.add(num2);
         } else if (op.equals("-")  || op.equals("ー")) {
-            return (num1 - num2);
+            return num1.subtract(num2);
         } else if (op.equals("*")  || op.equals("＊")) {
-            return (num1 * num2);
+            return num1.multiply(num2);
         } else if (op.equals("/")  || op.equals("／")) {
-        //★★★★★★
-            return (num1 / num2);
+            return num1.divide(num2, 15, RoundingMode.HALF_UP);
         } else {
-            return Double.NaN;
+            return null;
         }
     }
 }
