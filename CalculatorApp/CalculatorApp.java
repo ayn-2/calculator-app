@@ -116,7 +116,7 @@ public class CalculatorApp {
             } else {
                 DecimalFormat df = new DecimalFormat("#,###.###############");
                 System.out.println("計算結果: " + df.format(result));
-                //★森本★
+                //★森本★船木
                 System.out.println("続けて計算しますか？ （はい / いいえ）：");
                 String retry = scanner.nextLine().trim();
 
