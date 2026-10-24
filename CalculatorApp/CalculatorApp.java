@@ -117,14 +117,25 @@ public class CalculatorApp {
                 DecimalFormat df = new DecimalFormat("#,###.###############");
                 System.out.println("計算結果: " + df.format(result));
                 //★森本★船木
-                System.out.println("続けて計算しますか？ （はい / いいえ）：");
-                String retry = scanner.nextLine().trim();
+                boolean endApp = false;
+                while (true) {
+                    System.out.println("続けて計算しますか？ （はい / いいえ）：");
+                    String retry = scanner.nextLine().trim();
 
-                if(!retry.equalsIgnoreCase("はい")){
-                    System.out.println("計算を終了します。");
-                    break;
-                //★★★★★★★★★   
+                    if(retry.equalsIgnoreCase("はい")){
+                        break;
+                    } else if(retry.equalsIgnoreCase("いいえ")) {
+                        System.out.println("計算を終了します。");
+                        endApp = true;
+                        break;
+                    } else {
+                        System.out.println("エラー：不正な文字が入力されました。\n「はい」か「いいえ」で入力してください。");
+                    }
                 }
+                if(endApp) {
+                    break;
+                }
+                //★★★★★★★★★   
             }
         }
 
